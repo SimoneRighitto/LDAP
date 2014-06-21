@@ -9,5 +9,21 @@ The first thing that we have done after having generated the .cvs file is to def
 
 Basically we have chosen a flat structure that include:
 
-As top-level an OU named **People**.
+
+
+```
+As top-level an OU named People.
 Then on the second level we have defined: 
+	- Students
+	- Professors
+	- Assistants
+	- Admins
+
+And finally on every second level entry we have the followings OU:
+	- TIN
+	- TIC
+	- COMEM
+	- EC
+	- HEG
+	- DEPG
+```
