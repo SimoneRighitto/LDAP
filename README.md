@@ -30,7 +30,13 @@ And finally on every second level entry we have the followings OU:
 
 The main problem with our organization is that default inetOrgPerson class doesn't contains all the needed attributes (sex, role and department). So we have to create custom objects that will contains our custom attributes. So we have defined the followings custom attributes:
 ```
-	-HeigVDsex
-	-HeigVDdepartment
-	-HeigVDrole
+	- HeigVDsex
+	- HeigVDdepartment
+	- HeigVDrole
 ```
+And we have added those custom attributes to our custom object HeigVDperson.
+
+
+# Data generation and import
+
+
