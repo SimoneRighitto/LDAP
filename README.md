@@ -53,6 +53,10 @@ The main problem with our organization is that default inetOrgPerson class doesn
 ```
 And we have added those custom attributes to our custom object HeigVDperson.
 
+Here an image to show our personal object:
+
+<center><img width=520 src="ObjectsPers/.png"></center>
+
 
 # Data generation and import
 
@@ -96,14 +100,14 @@ ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bin
 Result: 6
 
 **What is the list of people who belong to the TIC Department?**
-<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(HEIGDivision=TIC)"
+<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(HeigVDdepartment=TIC)"
 </code>
 
 **What is the list of students in the directory?**
-<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(HEIGRole=Student)"</code>
+<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(HeigVDrole=Student)"</code>
 
 **What is the list of students in the TIC Department?**
-<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(&(HEIGDivision=TIC)(HEIGRole=Student))"
+<code>ldapsearch --hostname 127.0.0.1 --port 389 --bindDN "cn=Directory Manager" --bindPassword toor --baseDN "dc=heigvd,dc=.ch" "(&(HeigVDdepartment=TIC)(HeigVDrole=Student))"
 </code>
 
 **What command do you run to define a dynamic group that represents all members of the TIN Department?**
@@ -116,7 +120,7 @@ cn: TINmembers<br />
 objectClass: top<br />
 objectClass: groupOfURLs<br />
 ou: People<br />
-memberURL: ldap:///ou=People,dc=heigvd,dc=.ch??sub?(HEIGDivision=TIN)
+memberURL: ldap:///ou=People,dc=heigvd,dc=.ch??sub?(HeigVDdepartment=TIN)
 </code>
 <br />
 <br />
@@ -140,7 +144,7 @@ cn: StudentsLastNameStartingWithA<br />
 objectClass: top<br />
 objectClass: groupOfURLs<br />
 ou: People<br />
-memberURL: ldap:///ou=People,dc=heigvd,dc=.ch??sub?(&(HEIGRole=Student)(givenName=A*))
+memberURL: ldap:///ou=People,dc=heigvd,dc=.ch??sub?(&(HeigVDrole=Student)(givenName=A*))
 </code>
 <br />
 <br />
